@@ -1,2 +1,7 @@
 # minix
-Minify js and css using Rust 
+
+Basic example usage:
+
+```shell
+cargo run -- -i file.js -o file.min.js
+```
