@@ -1,5 +1,5 @@
 mod minix;
-mod files;
+mod engine;
 mod args_cli;
 
 use clap::Parser;
@@ -8,7 +8,7 @@ use std::error::Error;
 
 use crate::{
     args_cli::Flags,
-    files::engine::Engine,
+    engine::engine::Engine,
 };
 
 #[tokio::main]

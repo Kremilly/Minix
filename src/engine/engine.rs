@@ -27,7 +27,7 @@ impl Engine {
         Ok(content)
     }
 
-    pub fn write(input: &str, output: &str) -> Result<(), Box<dyn Error>> {
+    fn write(input: &str, output: &str) -> Result<(), Box<dyn Error>> {
         let content_minified;
         let content = Self::read(input)?;
 
