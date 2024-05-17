@@ -1,4 +1,6 @@
-# minix
+# Minix
+
+A simple minifier js and css using Rust
 
 > [!important]
 > ***Under in development***
