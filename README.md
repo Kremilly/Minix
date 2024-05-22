@@ -11,5 +11,5 @@ cargo install minix
 Basic example usage:
 
 ```shell
-minix -- -i file.js -o file.min.js
+minix -i file.js -o file.min.js
 ```
