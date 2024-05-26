@@ -9,5 +9,5 @@ pub struct Flags {
 
     #[arg(short, long)]
     /// Set the file output after minified
-    pub output: String,
+    pub output: Option<String>,
 }

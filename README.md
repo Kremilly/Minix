@@ -8,8 +8,32 @@ To Install using [crates.io](https://crates.io)
 cargo install minix
 ```
 
-Basic example usage:
+### Basic example usage:
+
+JS:
 
 ```shell
 minix -i file.js -o file.min.js
+
+# OR
+
+minix -i js/*.js -o bundle.js
+
+# OR 
+
+minix -i js/*.js
+```
+
+CSS:
+
+```shell
+minix -i file.css -o file.min.css
+
+# OR
+
+minix -i css/*.css -o bundle.css
+
+# OR 
+
+minix -i css/*.css
 ```
