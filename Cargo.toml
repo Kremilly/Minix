@@ -7,7 +7,7 @@ author = ["kremilly"]
 keywords = ["rust", "javascript", "css", "minify", "compression"]
 description = "A straightforward minifier for JavaScript and CSS files, developed using Rust. This tool efficiently reduces the size of JS and CSS files by removing unnecessary characters, whitespace, and comments without affecting functionality."
 repository = "https://github.com/kremilly/Minix"
-homepage = "https://github.com/kremilly/Minix"
+homepage = "https://kremilly.com"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
