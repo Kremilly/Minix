@@ -19,8 +19,8 @@ use crate::{
 async fn main() -> Result<(), Box<dyn Error>> {
     let flags = Flags::parse();
 
-    let author = "@Kremilly";
-    let homepage = "https://kremilly.com";
+    let author = env!("CARGO_PKG_AUTHORS");
+    let homepage = env!("CARGO_PKG_HOMEPAGE");
 
     if let Some(title) = FIGfont::standard().unwrap().convert("Minix") {
         println!("{}", title.to_string().bold().blue());

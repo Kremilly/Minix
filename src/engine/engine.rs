@@ -1,12 +1,18 @@
+extern crate colored;
+
+use colored::*;
 use crate::minix::minify::Minify;
 
 use std::{
-    error::Error,
-    fs::{self, File},
     io::Write,
     path::Path,
-};
+    error::Error,
 
+    fs::{
+        self, 
+        File
+    },
+};
 
 pub struct Engine;
 
@@ -71,7 +77,7 @@ impl Engine {
         let mut file = File::create(output)?;
         file.write_all(content_minified.as_bytes())?;
 
-        println!("File minified from {} to {} successfully!", input, output);
+        println!("-> File minified from {} to {} was successfully!", input.blue(), output.green());
         Ok(())
     }
     
@@ -85,7 +91,7 @@ impl Engine {
         let mut file = File::create(output)?;
         file.write_all(content_minified.as_bytes())?;
 
-        println!("File minified from {} to {} successfully!", input, output);
+        println!("-> File minified from {} to {} was successfully!", input.blue(), output.green());
         Ok(())
     }
 
@@ -94,7 +100,7 @@ impl Engine {
             let filter: Vec<&str> = input.split("*.").collect();
             Self::scan_path(filter[0], filter[1], output)?;
         } else {
-            Self::write(input, output.unwrap_or(""))?; // Dereference the output parameter
+            Self::write(input, output.unwrap_or(""))?;
         }
 
         Ok(())
