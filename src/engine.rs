@@ -1,7 +1,11 @@
 extern crate colored;
 
 use colored::*;
-use crate::minix::minify::Minify;
+
+use crate::{
+    args_cli::Flags,
+    minix::minify::Minify
+};
 
 use std::{
     io::Write,
@@ -14,9 +18,19 @@ use std::{
     },
 };
 
-pub struct Engine;
+pub struct Engine {
+    input: String,
+    output: Option<String>,
+}
 
 impl Engine {
+
+    pub fn new(flags: Flags) -> Self {
+        Self {
+            input: flags.input,
+            output: flags.output,
+        }
+    }
 
     fn read(input: &str) -> Result<String, Box<dyn Error>> {
         let content = if Path::new(&input).is_file() {
@@ -91,16 +105,24 @@ impl Engine {
         let mut file = File::create(output)?;
         file.write_all(content_minified.as_bytes())?;
 
-        println!("-> File minified from {} to {} was successfully!", input.blue(), output.green());
+        println!("File minified from {} to {} was successfully!", input.bold().blue(), output.bold().green());
         Ok(())
     }
 
-    pub fn run(input: &str, output: Option<&str>) -> Result<(), Box<dyn Error>> {
-        if input.contains("*") {
-            let filter: Vec<&str> = input.split("*.").collect();
-            Self::scan_path(filter[0], filter[1], output)?;
+    pub fn run(&self) -> Result<(), Box<dyn Error>> {
+        if self.input.contains("*") {
+            let filter: Vec<&str> = self.input.split("*.").collect();
+            
+            Self::scan_path(
+                filter[0], 
+                filter[1], 
+                self.output.as_deref()
+            )?;
         } else {
-            Self::write(input, output.unwrap_or(""))?;
+            Self::write(
+                &self.input, 
+                self.output.as_deref().unwrap_or("")
+            )?;
         }
 
         Ok(())

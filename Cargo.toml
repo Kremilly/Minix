@@ -1,12 +1,13 @@
 [package]
 name = "minix"
 license = "MIT"
-version = "0.1.5"
+version = "0.1.6"
 edition = "2021"
 authors = ["kremilly"]
-keywords = ["rust", "javascript", "css", "minify", "compression"]
+keywords = ["javascript", "css", "minify", "compression"]
 description = "A straightforward minifier for JavaScript and CSS files, developed using Rust. This tool efficiently reduces the size of JS and CSS files by removing unnecessary characters, whitespace, and comments without affecting functionality."
 repository = "https://github.com/kremilly/Minix"
+documentation = "https://kremilly.com/docs/minix"
 homepage = "https://kremilly.com"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
