@@ -10,4 +10,8 @@ pub struct Flags {
     #[arg(short, long)]
     /// Set the file output after minified
     pub output: Option<String>,
+
+    #[arg(short, long)]
+    /// Watch mode for minify
+    pub watch: bool,
 }

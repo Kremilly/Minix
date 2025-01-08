@@ -1,10 +1,11 @@
 [package]
 name = "minix"
 license = "MIT"
-version = "0.1.6"
+version = "0.1.7"
 edition = "2021"
 authors = ["kremilly"]
-keywords = ["javascript", "css", "minify", "compression"]
+categories = ["command-line-utilities"]
+keywords = ["javascript", "css", "minify", "compression", "minification"]
 description = "A straightforward minifier for JavaScript and CSS files, developed using Rust. This tool efficiently reduces the size of JS and CSS files by removing unnecessary characters, whitespace, and comments without affecting functionality."
 repository = "https://github.com/kremilly/Minix"
 documentation = "https://kremilly.com/docs/minix"
@@ -13,8 +14,9 @@ homepage = "https://kremilly.com"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tokio = { version = "1.37.0", features = ["full"] }
+tokio = { version = "1.43.0", features = ["full"] }
 regex = "1.4"
 figlet-rs = "0.1.3"
-clap = { version = "4.4.8", features = ["cargo", "derive"] }
-colored = "2.1.0"
+clap = { version = "4.5.24", features = ["cargo", "derive"] }
+colored = "3.0.0"
+notify = "7.0.0"

@@ -24,7 +24,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     if let Some(title) = FIGfont::standard().unwrap().convert(name) {
         println!("{}", title.to_string().bold().yellow());
-        println!("v.{} | {} @{}", version.bold().blue(), homepage.bold().cyan(), author.bold().green());
+        println!("v.{} | {} | @{}", version.bold().blue(), homepage.bold().cyan(), author.bold().green());
         println!("");
     }
 
