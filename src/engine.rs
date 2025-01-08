@@ -169,8 +169,7 @@ impl Engine {
                     for path in event.paths {
                         if let Some(ext) = path.extension().and_then(|e| e.to_str()) {
                             if ext == "js" || ext == "css" {
-                                println!("📝 Change detected: {:?}", path.display());
-                                self.minify_once()?; // Reexecuta a minificação
+                                self.minify_once()?;
                             }
                         }
                     }
