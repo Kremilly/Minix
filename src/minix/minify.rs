@@ -1,8 +1,8 @@
 use regex::Regex;
 
-use crate::{
-    minix::utils::Utils,
-    minix::regex::RegExp,
+use crate::minix::{
+    utils::Utils,
+    regex::RegExp,
 };
 
 pub struct Minify;
