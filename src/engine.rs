@@ -125,6 +125,7 @@ impl Engine {
         } else {
             self.minify_once()?;
         }
+        
         Ok(())
     }
 
@@ -143,6 +144,7 @@ impl Engine {
                 self.output.as_deref().unwrap_or("")
             )?;
         }
+
         Ok(())
     }
 
