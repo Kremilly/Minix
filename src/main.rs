@@ -1,7 +1,7 @@
 extern crate colored;
 
+mod core;
 mod minix;
-mod engine;
 mod args_cli;
 
 use colored::*;
@@ -11,7 +11,7 @@ use figlet_rs::FIGfont;
 use std::error::Error;
 
 use crate::{
-    engine::Engine,
+    minix::Minix,
     args_cli::Flags,
 };
 
@@ -28,7 +28,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
         println!("");
     }
 
-    Engine::new(
+    Minix::new(
         Flags::parse()
     ).run()?;
 

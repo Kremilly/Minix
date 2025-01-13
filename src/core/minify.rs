@@ -1,6 +1,6 @@
 use regex::Regex;
 
-use crate::minix::{
+use crate::core::{
     utils::Utils,
     regex::RegExp,
 };
@@ -9,7 +9,7 @@ pub struct Minify;
 
 impl Minify {
 
-    pub fn js(code: &str) -> String {
+    pub fn js(&self, code: &str) -> String {
         let code = Utils::preserve_strings(code);
         let code = Utils::remove_single_line_comments(&code);
 
@@ -33,7 +33,7 @@ impl Minify {
         code.to_string()
     }
 
-    pub fn css(code: &str) -> String {
+    pub fn css(&self, code: &str) -> String {
         let css = Regex::new(RegExp::MIN_CSS_REMOVE_MULTI_LINE_COMMENT).unwrap().replace_all(code, "");
         let css = Regex::new(RegExp::MIN_CSS_REMOVE_WHITESPACE).unwrap().replace_all(&css, " ");
         let css = Regex::new(RegExp::MIN_CSS_REMOVE_SPACES).unwrap().replace_all(&css, "$1");

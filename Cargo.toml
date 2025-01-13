@@ -1,7 +1,7 @@
 [package]
 name = "minix"
 license = "MIT"
-version = "0.1.7"
+version = "0.1.8"
 edition = "2021"
 authors = ["kremilly"]
 categories = ["command-line-utilities"]
@@ -17,6 +17,6 @@ homepage = "https://kremilly.com"
 tokio = { version = "1.43.0", features = ["full"] }
 regex = "1.4"
 figlet-rs = "0.1.3"
-clap = { version = "4.5.24", features = ["cargo", "derive"] }
+clap = { version = "4.5.26", features = ["cargo", "derive"] }
 colored = "3.0.0"
-notify = "7.0.0"
+notify = "8.0.0"

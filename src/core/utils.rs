@@ -1,6 +1,6 @@
 use regex::Regex;
 
-use crate::minix::regex::RegExp;
+use crate::core::regex::RegExp;
 
 pub struct Utils;
 
