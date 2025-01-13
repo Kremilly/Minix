@@ -10,8 +10,8 @@ pub struct Minify;
 impl Minify {
 
     pub fn js(&self, code: &str) -> String {
-        let code = Utils::preserve_strings(code);
-        let code = Utils::remove_single_line_comments(&code);
+        let code = Utils.preserve_strings(code);
+        let code = Utils.remove_single_line_comments(&code);
 
         let code = Regex::new(RegExp::MIN_JS_REMOVE_MULTI_LINE_COMMENT).unwrap().replace_all(&code.trim(), "");
         let code = Regex::new(RegExp::MIN_JS_STRING_LITERAL).unwrap().replace_all(&code, "$0");
@@ -28,8 +28,8 @@ impl Minify {
             format!("\"{}\"", inner.replace("\\\"", "\""))
         });
     
-        let code = Utils::remove_empty_lines(&code);
-        let code = Utils::remove_line_break_after_semicolon(&code);
+        let code = Utils.remove_empty_lines(&code);
+        let code = Utils.remove_line_break_after_semicolon(&code);
         code.to_string()
     }
 

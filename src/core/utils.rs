@@ -6,7 +6,7 @@ pub struct Utils;
 
 impl Utils {
 
-    pub fn preserve_strings(code: &str) -> String {
+    pub fn preserve_strings(&self, code: &str) -> String {
         let mut result = String::new();
         let mut is_in_string = false;
         let mut string_char = ' ';
@@ -32,7 +32,7 @@ impl Utils {
         result
     }
 
-    pub fn remove_single_line_comments(code: &str) -> String {
+    pub fn remove_single_line_comments(&self, code: &str) -> String {
         let re = Regex::new(RegExp::MIN_JS_SINGLE_LINE_COMMENT_REGEX).unwrap();
         let mut result = String::new();
     
@@ -50,13 +50,13 @@ impl Utils {
         result
     }
 
-    pub fn remove_empty_lines(code: &str) -> String {
+    pub fn remove_empty_lines(&self, code: &str) -> String {
         let re = Regex::new(RegExp::MIN_JS_EMPTY_LINES_REGEX).unwrap();
         let result = re.replace_all(code, "");
         result.into_owned()
     }
     
-    pub fn remove_line_break_after_semicolon(code: &str) -> String {
+    pub fn remove_line_break_after_semicolon(&self, code: &str) -> String {
         let re = Regex::new(RegExp::MIN_JS_LINE_END_SEMICOLON_REGEX).unwrap();
         let result = re.replace_all(code, ";");
         result.into_owned()
