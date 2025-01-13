@@ -17,9 +17,14 @@ use crate::{
 };
 
 use std::{
-    io::Write,
     path::Path,
     error::Error,
+
+    io::{
+        Write,
+        ErrorKind,
+        Error as IoError,
+    },
 
     fs::{
         File,
@@ -101,7 +106,7 @@ impl Engine {
         let mut file = File::create(output)?;
         file.write_all(content_minified.as_bytes())?;
 
-        println!("-> File minified from {} to {} was successfully!", input.blue(), output.green());
+        println!("File minified from {} to {} was successfully!", input.blue(), output.green());
         Ok(())
     }
     
@@ -154,9 +159,9 @@ impl Engine {
         let watch_path = Path::new(watch_path_str);
     
         if !watch_path.is_dir() {
-            return Err(Box::new(std::io::Error::new(
-                std::io::ErrorKind::NotFound,
-                format!("Diretório '{}' não encontrado.", watch_path.display()),
+            return Err(Box::new(IoError::new(
+                ErrorKind::NotFound,
+                format!("Directory '{}' not found.", watch_path.display()),
             )));
         }
     
