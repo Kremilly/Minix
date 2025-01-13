@@ -69,7 +69,7 @@ impl Minix {
                 let path_str = path.to_str().unwrap();
 
                 if path.is_file() && !path_str.contains(".min") && path_str.ends_with(filter) {
-                    let content_file = &self.read(path_str)?;
+                    let content_file = self.read(path_str)?;
                     content.push_str(&content_file);
                 }
             }
@@ -175,19 +175,15 @@ impl Minix {
                     for path in event.paths {
                         if let Some(ext) = path.extension().and_then(|e| e.to_str()) {
                             if ext == "js" || ext == "css" {
-                                if let Some(path_str) = path.to_str() {
-                                    let output_path = path_str.replace(ext, &format!("min.{}", ext));
-                                    self.write(path_str, &output_path)?;
-                                }
+                                self.minify_once()?;
                             }
                         }
                     }
                 }
-
                 Ok(Err(e)) => eprintln!("⚠ Watch error: {:?}", e),
                 Err(e) => eprintln!("❌ Channel error: {:?}", e),
             }
         }
-    }    
+    }
     
 }
